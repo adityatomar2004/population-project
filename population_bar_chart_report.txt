@@ -1,0 +1,30 @@
+TASK 01 - Bar Chart Visualization of World Population
+
+Objective:
+To create a bar chart visualizing the distribution of total population among the 10 most populous countries in 2022, using World Bank data.
+
+Data Source:
+World Bank Open Data - Population, total (2022)
+
+Method:
+A bar chart was created showing the top 10 countries by total population. The data was compiled from the World Bank, ranked, and plotted using Python (matplotlib).
+
+Observation:
+India and China have the largest populations, each over 1.4 billion. The United States, Indonesia, and Pakistan also have large populations, with the other countries considerably less. The chart provides a clear visual comparison between countries.
+
+Python code used:
+import pandas as pd
+import matplotlib.pyplot as plt
+
+data = {
+    'Country': ['India', 'China', 'United States', 'Indonesia', 'Pakistan', 'Nigeria', 'Brazil', 'Bangladesh', 'Russia', 'Mexico'],
+    'Population_2022_thousands': [1417173, 1412175, 333288, 275501, 235825, 218541, 215313, 171186, 144713, 126705]
+}
+df = pd.DataFrame(data)
+plt.figure(figsize=(10, 6))
+plt.barh(df['Country'], df['Population_2022_thousands'], color='skyblue')
+plt.xlabel('Population (thousands)')
+plt.title('Top 10 Most Populous Countries (2022)')
+plt.gca().invert_yaxis()
+plt.tight_layout()
+plt.show()
